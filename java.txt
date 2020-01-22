@@ -1,0 +1,59 @@
+package com.company.Meeting7b;
+import com.company.Meeting6.Point2D;
+
+import java.awt.*;
+
+public class Circle2D
+{
+    private float r;
+    private Point2D center;
+
+
+    public Circle2D(float r, int x, int y){
+        setR(r);
+        center = new Point2D(x, y);
+    }
+    public Circle2D(float r){
+        this(r, 0, 0);
+    }
+    public float getR(){
+        return r;
+    }
+    public int getCenterX(){
+        return center.getX();
+    }
+    public int getCenterY(){
+        return center.getY();
+    }
+
+
+    public void setR(float r){
+        this.r = r;
+    }
+
+    public void setCenterX(int x){
+        center.setX(x);
+    }
+    public void setCenterY(int y){
+        center.setY(y);
+    }
+    public void setCenter(int x, int y){
+        setCenterX(x);
+        setCenterY(y);
+    }
+    public void setCenter(Point2D newCenter){
+        //center = newCenter;
+        center.setX(newCenter.getX());
+        center.setY(newCenter.getY());
+    }
+
+    public void draw(Graphics g){
+        g.fillOval((int)this.getCenterX() - (int)this.getR(),
+                (int)this.getCenterY() - (int)this.getR(),
+                2*(int)this.getR(), 2*(int)this.getR());
+    }
+
+    public void scaleUp(float factor){
+        r = factor*r;
+    }
+}
